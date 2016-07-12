@@ -9,21 +9,23 @@ X_AR = $(XTOOLS_DIR)/bin/arm-none-eabi-ar
 X_LD = $(XTOOLS_DIR)/bin/arm-none-eabi-ld
 X_GDB = $(XTOOLS_DIR)/bin/arm-none-eabi-gdb
 
-OUTPUT = poos
+OUTPUT = repo
 
 # source
 
 SRC = ./sdk/src/startup_efm32lg.c \
       ./sdk/src/system_efm32lg.c \
       ./src/main.c \
+      ./src/keys.c \
       ./src/lcd.c \
+      ./src/leds.c \
 
 OBJ = $(patsubst %.c, %.o, $(SRC))
 
 # include files
 INC = ./cmsis/inc
 INC += ./sdk/inc
-INC += ./src
+INC += ./inc
 
 INCLUDE = $(addprefix -I,$(INC))
 
